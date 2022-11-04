@@ -5,7 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [lib]
-name = "Rust_Vs_Python_Test"
+name = "rust_vs_python_test"
 crate-type = ["cdylib"]
 
 [dependencies]
