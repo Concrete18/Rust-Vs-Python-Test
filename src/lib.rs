@@ -1,17 +1,16 @@
 use pyo3::prelude::*;
 
-fn count_to_num(num: usize) -> String {
+fn count_to_num(num: usize) {
     let mut n = 0;
     while n < num {
         n += 1
     }
-    "sadadsa".to_string()
 }
 
 /// Formats the sum of two numbers as string.
 #[pyfunction]
-fn count(num: usize) -> PyResult<String> {
-    Ok(count_to_num(num))
+fn count(num: usize) {
+    count_to_num(num)
 }
 
 /// A Python module implemented in Rust.
