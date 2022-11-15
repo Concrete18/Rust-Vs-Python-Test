@@ -1,4 +1,4 @@
-from time import perf_counter
+from time import perf_counter, sleep
 import rust_vs_python_test
 
 
@@ -12,9 +12,7 @@ class Python:
             n += 1
         # end timer
         end = perf_counter()
-        elapsed = round((end - start) * 1000, 2)
-        print(f"Python Completion Time: {elapsed} ms")
-        return elapsed
+        return end - start
 
 
 class Rust:
@@ -27,10 +25,7 @@ class Rust:
             run_count -= 1
         # end timer
         end = perf_counter()
-        ms = round((end - start) * 1000, 2)
-        us = round((end - start) * 1000 * 1000, 2)
-        print(f"Rust Completion Time: {ms} ms or {us} μs")
-        return ms
+        return end - start
 
 
 class SpeedTest:
@@ -38,33 +33,62 @@ class SpeedTest:
     python = Python()
     rust = Rust()
 
+    @staticmethod
+    def convert_times(elapsed_time):
+        ms = round((elapsed_time) * 1000, 2)
+        us = round((elapsed_time) * 1000 * 1000, 2)
+        return ms, us
+
+    @staticmethod
+    def get_factor(slower_time, faster_time):
+        """
+        ph
+        """
+        return round(slower_time / faster_time, 1)
+
     def count(self):
+        """
+        Tests Python and Rust speed when counting to 1 Million.
+        """
         # counting speed test
         NUM = 1_000_000
         print(f"\nTesting Count to {NUM:,}")
 
-        print("\nStarting Python")
+        # runs each test
         python_time = self.python.count(NUM)
-        print("\nStarting Rust")
-        rust_time = self.rust.count(NUM, 15)
+        python_ms, python_us = self.convert_times(python_time)
 
-        diff = round(python_time / rust_time, 1)
-        print(f"\nRust ran {diff} times faster then Python")
+        rust_time = self.rust.count(NUM, 10)
+        rust_ms, rust_us = self.convert_times(rust_time)
 
-        input("\nPress Enter to Start Next Speed Test")
+        sleep(3)
+
+        # prints times
+        input("\nPress enter to show Python Time")
+        print(f"Python Completion Time: {python_ms} ms")
+
+        input("\nPress enter to show Rust Time")
+        print(f"Rust Completion Time: {rust_ms} ms or {rust_us} μs")
+
+        # get differenct
+        input("\nPress enter to show Rust Speed Factor")
+        factor = self.get_factor(python_time, rust_time)
+        print(f"\nRust ran {factor} times faster then Python")
+
+        input("\nPress Enter to Continue")
 
         print("\nRedoing Rust Speed Test")
-
         rust_time = self.rust.count(NUM)
-        diff = round(python_time / rust_time, 1)
-        print(f"\nRust actually ran {diff} times faster then Python")
+        factor = self.get_factor(python_time, rust_time)
+        print(f"Rust actually ran {factor} times faster then Python")
 
 
 def main():
-    print("Rust VS Python Speed Test")
-    input("\nPress Enter to start first test")
+    print("\n\nRust VS Python Speed Test")
     test = SpeedTest()
+    input("\nPress Enter to start first test")
     test.count()
+    print("\n\n")
 
 
 if __name__ == "__main__":
