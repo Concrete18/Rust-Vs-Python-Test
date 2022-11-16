@@ -16,14 +16,16 @@ Start with the following instructions and then choose the next step depending on
 - Create Python Virtual Environment using `python -m venv .env`
 - Run `pip install maturin` [Maturin](https://github.com/PyO3/maturin)
 
-#### Maturin Setup for this project
+Choose only one of the next two steps.
+
+#### Maturin Setup for this Rust VS Python Demonstration
 
 Use this these instructions to use the code within this project.
 
 - Run `Maturin develop`
 - Run Python3 Versus.py
 
-#### Maturin Setup for a new project
+#### Maturin Setup for a new project of your own
 
 Use these instructions to create your own Python project with Rust functions.
 
