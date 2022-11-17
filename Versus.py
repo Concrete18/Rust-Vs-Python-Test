@@ -21,7 +21,7 @@ class Python:
 class Rust:
     def count(self, num, run_count=1):
         """
-        Counts to `num` from 0 using the imported Rust Library.
+        Counts to `num` from 0 using the imported Rust Code Library.
         """
         # start timer
         start = perf_counter()
