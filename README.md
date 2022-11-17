@@ -12,11 +12,14 @@ This will show you 2 ways to learn how to use Rust in Python.
 
 Start with the following instructions and then choose the next step depending on if you want to run this project or start your own.
 
-- Install [Rust](https://www.rust-lang.org/) and [Python](https://www.python.org/) (if not installed)
+- Install [Rust](https://www.rust-lang.org/) and [Python](https://www.python.org/) (I used 3.8.6) (if not installed)
 - Create Python Virtual Environment using `python -m venv .env`
-- Run `pip install maturin` [Maturin](https://github.com/PyO3/maturin)
+- Activate your venv
+- Run `pip install maturin`
 
 Choose only one of the next two steps.
+
+For more detailed instructions go to [Maturin](https://github.com/PyO3/maturin).
 
 #### Maturin Setup for this Rust VS Python Demonstration
 
