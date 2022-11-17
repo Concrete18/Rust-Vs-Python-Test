@@ -4,6 +4,10 @@
 
 I made this for a workshop that demonstrates the speed differences of Rust and shows how that can allow you to speed up Python using Maturin to import Rust code into python projects.
 
+[Google Slides Link](https://docs.google.com/presentation/d/1AkYj3ZzVTnYjSmr6Qgjrki1yd8NvC36VB3p5_TzAwjQ/edit?usp=sharing)
+
+<!-- [Workshop Video Link](https://www.rust-lang.org/) -->
+
 ## How To
 
 This will show you 2 ways to learn how to use Rust in Python.
